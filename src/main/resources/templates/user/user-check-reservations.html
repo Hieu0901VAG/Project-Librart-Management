@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Total Reservation</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/CSS/account-layout.css}">
+</head>
+<body>
+
+<div class="container">
+  <h3>Total reservation</h3>
+
+  <div class="row">
+    <div class="col-25">
+      Total books :
+    </div>
+    <div class="col-75">
+      <text th:text="${amountToPay}"></text>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-75">
+      <form th:action="@{/user/browsebooks/savereservation}" th:method="PUT">
+        <input type="submit" value="Confirm and complete reservation" style="width: 200px">
+        <input type="hidden" value="PUT" name="_method">
+        <input type="hidden" th:value="${reservedBookIdsInString}" th:name="reservedBookIdsInString">
+      </form>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
